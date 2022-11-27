@@ -1,15 +1,15 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-![](https://github.com/pduck27/ESPFerrarisCounterToMQTT/workflows/BuildAndRelease/badge.svg)
-![](https://img.shields.io/github/v/release/pduck27/ESPFerrarisCounterToMQTT)
+![](https://github.com/pduck27/Smart-Meter-to-MQTT/workflows/BuildAndRelease/badge.svg)
+![](https://img.shields.io/github/v/release/pduck27/Smart-Meter-to-MQTT)
 
 # ESP Smartmeter IR Reader to MQTT
 This ESP project monitors a smart power electricity meter named "DD3 2R06 ETA ODZ 01" (https://www.ebzgmbh.de/unsere-produkte/) with an IR Receiver "Hitchi TTL IR" (https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-ttl-ausgang). 
 
 ![smart meter image](/ressource/unsere-produkte_dd3.jpg)
 
-![smart meter image](/ressource/shot2.jpg)
+![ir receiver image](/ressource/s-l400.jpg)
 
-Almost every 30 seconds the procedure tries to receive a full data stack and sends it via MQTT. I also included an optional LED which is switched on for several seconds when a full data stack was read. 
+Almost every 30 seconds the ESP tries to receive a full data stack and sends it via MQTT. I also included an optional LED which is switched on for several seconds when a full data stack was read. 
 
 A full data stack send by the DD3 smart meter looks like this. The variable's key always starts with "*Number-Number : ...*" and the value is given in following brackets. The format and the content can be different for other meter models.
 
@@ -40,5 +40,5 @@ For the first start you should adapt the file *Credentials_sample.h* from the in
 The code only checks for "Used energy total", "Produced energy total" and "Current power total". You can change it to your needs, just read the comments in the code for possible adjustments.
 
 # Licence
-All code is licensed under the [MPLv2 License](https://github.com/pduck27/ESPFerrarisCounterToMQTT/blob/master/LICENSE).
+All code is licensed under the [MPLv2 License](https://github.com/pduck27/Smart-Meter-to-MQTT/blob/master/LICENSE).
 Please recognize additional comments in the code.
