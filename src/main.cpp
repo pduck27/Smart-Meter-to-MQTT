@@ -5,8 +5,8 @@
 #include <WiFi.h>
 #include <Credentials.h> // Should link to your own credentials.h file. See Credentials_sample.h in include-directory.
 
-#define RXD2 16   // Tx grün
-#define TXD2 17  // Rx weiß
+#define RXD2 16   // Tx green to IR receiver
+#define TXD2 17  // Rx white to IR receiver
 #define LED_PIN 32
 
 // Wifi
@@ -32,7 +32,7 @@ const char* mqttServer = MQTT_SERVER; // Define in include/Credentials.h
 const char* mqttUser = MQTT_USER; // Define in include/Credentials.h
 const char* mqttPassword = MQTT_PWD; // Define in include/Credentials.h
 const int   mqttPort = 1883; 
-const char* mqttPub = "smartmeter/status"; 
+const char* mqttPub = "smartmeter/status"; // Change here for other MQTT channel / topic
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -133,7 +133,6 @@ void setup() {
 
   // ntpTimeInitialization(); 
   
-  // Note the format for setting a serial port is as follows: Serial2.begin(baud-rate, protocol, RX pin, TX pin);
   Serial2.begin(9600, SERIAL_7E1, RXD2, TXD2);
   Serial.println("Serial Txd is on pin: "+ String(TX));
   Serial.println("Serial Rxd is on pin: "+ String(RX));
@@ -178,7 +177,7 @@ void identify(String content) {
     sendMQTTPayload(); 
     delay(1000); 
     digitalWrite(LED_PIN, LOW);     
-    nextCheckMillis = millis() + 30000;
+    nextCheckMillis = millis() + 30000; // Change nummer in millisceonds for other delay
   }    
 }
 
