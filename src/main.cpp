@@ -7,7 +7,7 @@
 
 #define RXD2 16   // Tx green to IR receiver
 #define TXD2 17  // Rx white to IR receiver
-#define LED_PIN 32
+#define LED_PIN 32 // Pin for LED
 
 // Wifi
 const char ssid[] = WIFI_SSID; // Define in include/Credentials.h
@@ -31,7 +31,7 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org");
 const char* mqttServer = MQTT_SERVER; // Define in include/Credentials.h
 const char* mqttUser = MQTT_USER; // Define in include/Credentials.h
 const char* mqttPassword = MQTT_PWD; // Define in include/Credentials.h
-const int   mqttPort = 1883; 
+const int   mqttPort = 1883; // Change if necessary
 const char* mqttPub = "smartmeter/status"; // Change here for other MQTT channel / topic
 
 WiFiClient espClient;
@@ -106,6 +106,7 @@ void mqttInitialization(){
 }
 
 void ntpTimeInitialization(){
+  // Currently not in use
   startTimestamp = 0; 
   timeClient.setUpdateInterval(43200); 
   timeClient.begin();
@@ -131,9 +132,9 @@ void setup() {
 
   mqttInitialization(); 
 
-  // ntpTimeInitialization(); 
+  // ntpTimeInitialization(); // Program hang sometimes when connection could not established. Was used to sent a timestamp with MQTT message. 
   
-  Serial2.begin(9600, SERIAL_7E1, RXD2, TXD2);
+  Serial2.begin(9600, SERIAL_7E1, RXD2, TXD2); // If the data is not readable please check baud rate and serial-configuration like stop bits etc.
   Serial.println("Serial Txd is on pin: "+ String(TX));
   Serial.println("Serial Rxd is on pin: "+ String(RX));
 
@@ -168,9 +169,11 @@ void identify(String content) {
     Serial.println("Power found: "); 
     currPowerVal = content.substring(content.indexOf("1-0:16.7.0*255(") + 15, content.indexOf("1-0:16.7.0*255(") + 15 + 9);
     Serial.println(currPowerVal);
-    foundSomething += 1;
+    foundSomething += 1; 
   }
 
+  // Add additional content here or change the ones above. Do not forgive to adjust the foundSomething-condition below regarding your needs.
+  
   if (foundSomething >= 3) {
     Serial.println("Send MQTT now.");
     digitalWrite(LED_PIN, HIGH); 
@@ -191,7 +194,7 @@ void loop() {
       content.concat(character); 
       delay(1);            
     } 
-    //Serial.print(content);     
+    //Serial.print(content);  // For debugging purpose   
     identify(content);      
     content = "";    
   }  
