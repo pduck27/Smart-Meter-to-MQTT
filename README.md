@@ -40,5 +40,5 @@ For the first start you should adapt the file *Credentials_sample.h* from the in
 The code only checks for "Used energy total", "Produced energy total" and "Current power total". You can change it to your needs, just read the comments in the code for possible adjustments.
 
 # Licence
-All code is licensed under the [MPLv2 License](https://github.com/pduck27/Smart-Meter-to-MQTT/blob/master/LICENSE).
+All code is licensed under the [MPLv2 License](https://github.com/pduck27/ESPFerrarisCounterToMQTT/blob/master/LICENSE).
 Please recognize additional comments in the code.
