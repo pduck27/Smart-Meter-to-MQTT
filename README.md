@@ -5,9 +5,9 @@
 # ESP Smartmeter IR Reader to MQTT
 This ESP project monitors a smart power electricity meter named "DD3 2R06 ETA ODZ 01" (https://www.ebzgmbh.de/unsere-produkte/) with an IR Receiver "Hitchi TTL IR" (https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-ttl-ausgang). 
 
-![smart meter image](ressource/unsere-produkte_dd3.jpg)
+![smart meter image](/ressource/unsere-produkte_dd3.jpg)
 
-![smart meter image](ressource/shot2.jpg)
+![smart meter image](/ressource/shot2.jpg)
 
 Almost every 30 seconds the procedure tries to receive a full data stack and sends it via MQTT. I also included an optional LED which is switched on for several seconds when a full data stack was read. 
 
