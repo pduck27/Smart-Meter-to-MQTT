@@ -37,7 +37,7 @@ For the first start you should adapt the file *Credentials_sample.h* from the in
 ![credentials image](/ressource/shot2.png)
 
 
-The code only checks for "Used energy total", "Produced energy total" and "Current power total". You can change it to your needs, just read the comments in the code for possible adjustments.
+The code only checks for "Used energy total", "Produced energy total" and "Current power total". You can change it to your needs, just read the comments in the code for possible adjustments. I know that the way how I read the values is really "hard coded" but my regex c++ skills are too bad. So if somebody can make it better please push it.
 
 # Licence
 All code is licensed under the [MPLv2 License](https://github.com/pduck27/Smart-Meter-to-MQTT/blob/master/LICENSE).

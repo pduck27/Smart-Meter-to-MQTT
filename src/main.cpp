@@ -151,6 +151,7 @@ void identify(String content) {
   producedEnergyVal = ""; 
   currPowerVal = "";
 
+  // Reading the values is really hard coded to my meter version. So first + number is the length of the key incl. the open bracket. Second number is the length of the value until closing bracket.
   if (content.indexOf("1-0:1.8.0*255(") > 0) {
     Serial.println("Used energy found: "); 
     usedEnergyVal = content.substring(content.indexOf("1-0:1.8.0*255(") + 14 , content.indexOf("1-0:1.8.0*255(") + 14 + 15);
