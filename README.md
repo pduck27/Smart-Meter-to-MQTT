@@ -1,5 +1,4 @@
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-![](https://github.com/pduck27/Smart-Meter-to-MQTT/workflows/BuildAndRelease/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/github/v/release/pduck27/Smart-Meter-to-MQTT)
 
 # ESP Smartmeter IR Reader to MQTT
@@ -40,5 +39,5 @@ For the first start you should adapt the file *Credentials_sample.h* from the in
 The code only checks for "Used energy total", "Produced energy total" and "Current power total". You can change it to your needs, just read the comments in the code for possible adjustments. I know that the way how I read the values is really "hard coded" but my regex c++ skills are too bad. So if somebody can make it better please push it.
 
 # Licence
-All code is licensed under the [MPLv2 License](https://github.com/pduck27/Smart-Meter-to-MQTT/blob/master/LICENSE).
+All code is licensed under the [MIT License](https://github.com/pduck27/Smart-Meter-to-MQTT/blob/master/LICENSE).
 Please recognize additional comments in the code.
